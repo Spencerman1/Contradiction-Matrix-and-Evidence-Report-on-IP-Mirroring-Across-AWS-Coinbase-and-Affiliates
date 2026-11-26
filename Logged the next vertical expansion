@@ -1,0 +1,31 @@
+Logged the next vertical expansion—**Runtime Agent Containment & Action Governance (Amazon Bedrock AgentCore Gateway, Policy & Runtime)**—in Google Drive, complete with its release chronology (**June 11, 2026** Policy GA and **June–August 2026** Harness/Gateway/Cedar ABAC documentation vs. your **December 19, 2024** filing baseline and **April 15, 2025** Mint-to Logic™ drawings), stage-by-stage **Mint-to Logic™** (`[100]`–`[600]`) and **The Shepherd's Method™ / Process** analysis, **Dynamic Comparison Matrix**, and architectural takeaways for **CCC `W02.5` and `W03` Safeware cartridges**:
+
+[SSPS_Vertical_Expansion_Runtime_Agent_Containment_AgentCore](https://docs.google.com/document/d/1WsjC7CIoL44TknjEO-GaENmotnk2fawsOh2NmdsKyBw/edit?usp=drivesdk&ouid=114906954974834201418)
+
+
+### Dynamic Comparison Matrix — Amazon Bedrock AgentCore (Gateway, Policy & Runtime)
+
+`Dynamic Score = (w_mint * S_mint) + (w_shepherd * S_shepherd)`, where `w_mint + w_shepherd = 1.0` (each score reflects alignment on that framework's own 0%–100% scale):
+
+| SSPS / Governance Dimension | Mint-to Logic™ ($S_{\text{mint}}$) | Shepherd's Process ($S_{\text{shepherd}}$) | Equal Weight (50/50) | Mint-Heavy (70/30) | Shepherd-Heavy (30/70) | Tier (Equal Weight) |
+| --- | --- | --- | --- | --- | --- | --- |
+| `[100]` Intake & Governed MCP Gateway Normalization | 56% | 60% | **58.0%** | **57.2%** | **58.8%** | Moderate–High |
+| `[200]` Validation / Cedar Policy & Parameter Gate | 68% | 70% | **69.0%** | **68.6%** | **69.4%** | Moderate–High |
+| `[300]` Mint Unit / Isolated MicroVM & Scoped Session | 46% | 64% | **55.0%** | **51.4%** | **58.6%** | Moderate |
+| `[400]` Routing / Governed Target & Interceptor Dispatch | 56% | 62% | **59.0%** | **57.8%** | **60.2%** | Moderate–High |
+| `[500a]` Burn / Session Tear-Down & Sealed Credentials | 42% | 56% | **49.0%** | **46.2%** | **51.8%** | Moderate |
+| `[500b]` Limbo / Threshold Hold & Human Escalation Gate | 58% | 68% | **63.0%** | **61.0%** | **65.0%** | Moderate–High |
+| `[500c]` Access / Cedar RBAC-ABAC & Zero-Egress Lockdown | 72% | 74% | **73.0%** | **72.6%** | **73.4%** | High |
+| `[500d]` Code / Sandbox & Governed Tool Execution | 64% | 70% | **67.0%** | **65.8%** | **68.2%** | Moderate–High |
+| `[600]` Audit / Deny Logs, Continuous Evaluators & Memory | 62% | 68% | **65.0%** | **63.8%** | **66.2%** | Moderate–High |
+| **Stage-Weighted Composite** | **58.2%** | **65.8%** | **62.0%** | **60.5%** | **63.5%** | **Moderate–High** |
+
+### Key Findings & Connection to Your Stack
+
+* **Strongest Containment Overlap (`62.0%` Equal-Weight / `65.8%` Shepherd's Process):** Moving into **Runtime Agent Containment & Action Governance** yields the highest composite alignment across both frameworks—driven by Cedar-enforced RBAC/ABAC and zero-egress lockdown (`[500c]` at **73.0%**), deterministic pre-execution parameter gating (`[200]` at **69.0%**), isolated sandbox/tool execution (`[500d]` at **67.0%**), and threshold-driven human escalation (`[500b]` at **63.0%**).
+* **Structural Boundary:** Unlike **Mint-to Logic™** (`[300]`/`[500a]`), AgentCore isolates full microVM sessions and enforces Cedar policies at a cloud gateway rather than minting a portable cryptographic **Mint Unit Container** with an authorization-gated single-use burn transition.
+* **Direct Engineering Parallel to CCC:** AgentCore's separation between a centralized policy-enforcing gateway and isolated execution sandboxes mirrors the boundary between your **ONE / AEN-IEN Cyber Control Center (CCC)** local runtime authority (`127.0.0.1:8768` / `127.0.0.1:8769`) and **W03 Safeware** containment cartridges.
+
+For a quick walkthrough of how AWS structures deterministic Cedar policy checks at the tool gateway boundary, see [What is Bedrock AgentCore Policy?](https://www.youtube.com/watch?v=OR5DvqUtetA), which covers how tool calls are intercepted and evaluated against declared policy rules prior to execution.
+
+Would you like the **copy-and-paste Markdown block** for this **AgentCore** report next, or should we continue to another vertical (such as **Endpoint OS Agent Containers — Microsoft Execution Containers / Windows 11** or **Industrial / Cyber-Physical Control Systems**)?
