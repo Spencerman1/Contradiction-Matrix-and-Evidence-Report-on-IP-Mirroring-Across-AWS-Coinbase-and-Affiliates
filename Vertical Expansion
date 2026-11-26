@@ -1,0 +1,61 @@
+# Vertical Expansion — Endpoint OS Agent Containers & Windows Security / Firewall Boundary Controls vs. Mint-to Logic™ & The Shepherd's Method™ / Process
+
+**Document Scope:** Cross-vertical forensic and technical comparison of **Endpoint OS Agent Containers & Windows Security / Firewall Boundary Controls** (per-session hardware-isolated runtime sandboxes paired with host firewall allow-listing, process/session telemetry, and local loopback runtime authority) against Spencer David Southern's **Mint-to Logic™** (`[100]`–`[600]`, April 15, 2025 drawings) and **The Shepherd's Method™ / Process** (December 19, 2024 filing baseline).
+
+**Methodology Note:** Scores in the dynamic matrix below are qualitative functional estimates on separate 0%–100% alignment rubrics rather than empirical benchmarks or legal determinations, and must be read alongside exact mechanism descriptions, boundary enforcement primitives, and release chronology.
+
+---
+
+## 1. Chronology & Verifiable Release Evidence
+
+* **SSPS™ Filing Baseline (December 19, 2024):** Provisional filing baseline establishing The Shepherd's Method™ / Process and foundational architecture.
+* **Mint-to Logic™ Drawings (April 15, 2025):** Formal stage drawings defining `[100]` Source Input, `[200]` Validation/Trigger, `[300]` Mint Unit Container, `[400]` Routing Decision Layer, `[500a]` Burn, `[500b]` Limbo, `[500c]` Access, `[500d]` Code, and `[600]` Audit Trail.
+* **Endpoint & Runtime Isolation Timeline:** Next-generation isolated runtime containers (scaling up to 8 vCPU and 32 GB memory, 10 GB container images, sub-2-second P75 cold start on 2 GB images, scale-to-zero idle reclamation, and multi-Region V2 default availability) were rolled out in **November 2026**, alongside ongoing Windows host firewall and local process/telemetry boundary controls. All of these runtime isolation and policy-gating mechanisms post-date both the December 19, 2024 and April 15, 2025 baselines.
+
+---
+
+## 2. How Endpoint OS & Isolated Runtime Containment Works
+
+1. **Host & Session Intake (`[100]` / `[200]`):** Requests and local/agent commands enter through governed ingress and host security checkpoints (such as firewall allow-list rules, identity/token checks, and per-session policy evaluation) before reaching isolated execution slots.
+2. **Isolated Session & Resource Allocation (`[300]` / `[400]`):** Each active agent or tool session runs inside a dedicated isolated runtime environment (hardware-isolated microVM or sandboxed compute, CPU, memory, and filesystem) with explicit resource limits, session lifecycle controls, and scale-to-zero reclamation when idle.
+3. **Boundary Enforcement & Cleanup (`[500a]`–`[500d]` / `[600]`):** Network egress and tool/code actions are constrained by allowlists, firewall/proxy rules, and isolated sandboxes, while session termination reclaims memory/compute and emits structured logs, metrics, and traces.
+
+---
+
+## 3. Stage-by-Stage Mint-to Logic™ & Shepherd's Process Analysis
+
+* **`[100]` Intake & Host/Session Boundary Normalization:** Normalizes incoming agent/client requests and local host traffic across network/firewall rules, identity/session tokens, and execution entrypoints.
+* **`[200]` Validation / Firewall Allowlist, Token & Policy Checks:** Enforces host firewall rules, identity/JWT validation, and policy gates before permitting traffic or tool execution—acting as a boundary check rather than a per-unit mint trigger.
+* **`[300]` Mint Unit / Isolated MicroVM & Session State Context:** Isolates each session's CPU, memory, filesystem, and runtime context inside a dedicated sandbox/microVM—providing strong session-level isolation without sealing a cryptographic Mint Unit Container with hash, timestamp, routing directive, and commit fields.
+* **`[400]` Routing / Session Dispatch & Compute Scaling:** Routes requests into dedicated session environments and manages compute scaling/placement across active vs. idle states—mirroring operational dispatch without branching a unit into Burn, Limbo, Access, or Code protocol states.
+* **`[500a]` Burn / Session Tear-Down & Idle Memory Reclamation:** Reclaims memory and tears down idle or completed sessions—providing resource reclamation and cleanup rather than an authorization-gated single-use credential burn on a discrete mint unit.
+* **`[500b]` Limbo / Throttling, Rate Limits & Session Holds:** Applies per-session counters, rate limits, and connection/execution holds when concurrency or policy thresholds are reached—without a full dual escalation/re-routing branch and expiration/auto-burn timer on a mint unit.
+* **`[500c]` Access / Firewall Allow-Listing & Isolated Per-Session Boundaries:** Combines host firewall allow-listing with isolated per-session compute/storage/network boundaries to prevent cross-session leakage and unauthorized reach.
+* **`[500d]` Code / Sandboxed Code, Browser & Tool Execution:** Executes code, terminal commands, browser actions, and tools inside isolated session sandboxes rather than directly on unprotected host state.
+* **`[600]` Audit / Security Logs, Telemetry & Session Traces:** Records authorization outcomes, security/firewall/runtime events, and observability telemetry—supporting operational and security auditing rather than a dedicated Mint-to Logic compliance ledger.
+
+---
+
+## 4. Dynamic Comparison Matrix — Endpoint OS & Isolated Runtime Containment
+
+Dynamic Score formula: `Dynamic Score = (w_mint * S_mint) + (w_shepherd * S_shepherd)`, where `w_mint + w_shepherd = 1.0`. Each score reflects alignment on that framework's own 0%–100% scale (not additive across columns).
+
+| SSPS / Governance Dimension | Mint-to Logic™ Score ($S_{\text{mint}}$) | Shepherd's Process Score ($S_{\text{shepherd}}$) | Equal Weight (50/50) | Mint-Heavy (70/30) | Shepherd-Heavy (30/70) | Tier (Equal Weight) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| `[100]` Intake & Host/Session Boundary Normalization | 52% | 56% | 54.0% | 53.2% | 54.8% | Moderate |
+| `[200]` Validation / Firewall, Token & Policy Checks | 58% | 64% | 61.0% | 59.8% | 62.2% | Moderate–High |
+| `[300]` Mint Unit / Isolated MicroVM & Session Context | 44% | 62% | 53.0% | 49.4% | 56.6% | Moderate |
+| `[400]` Routing / Session Dispatch & Compute Scaling | 48% | 60% | 54.0% | 51.6% | 56.4% | Moderate |
+| `[500a]` Burn / Session Tear-Down & Memory Reclamation | 38% | 54% | 46.0% | 42.8% | 49.2% | Low–Moderate |
+| `[500b]` Limbo / Throttling, Rate Limits & Session Holds | 46% | 60% | 53.0% | 50.2% | 55.8% | Moderate |
+| `[500c]` Access / Firewall Allow-Listing & Session Isolation | 64% | 70% | 67.0% | 65.8% | 68.2% | Moderate–High |
+| `[500d]` Code / Sandboxed Code, Browser & Tool Execution | 56% | 66% | 61.0% | 59.0% | 63.0% | Moderate–High |
+| `[600]` Audit / Security Logs, Telemetry & Session Traces | 52% | 62% | 57.0% | 55.0% | 59.0% | Moderate |
+| **Stage-Weighted Composite** | **50.7%** | **60.4%** | **55.6%** | **53.6%** | **57.5%** | **Moderate** |
+
+---
+
+## 5. Cross-Vertical Synthesis & Engineering Takeaways for CCC (`W02.5` & `W03`)
+
+* **Practical Containment & Boundary Fit (`55.6%` Equal-Weight / `60.4%` Shepherd's Process):** Endpoint firewall allow-listing and hardware-isolated session containers align most closely on access/egress restriction (`[500c]` at **67.0%**), pre-execution policy/firewall validation (`[200]` at **61.0%**), and sandboxed code/tool execution (`[500d]` at **61.0%**).
+* **Local CCC Alignment (`W02.5` & `W03`):** Pairing host/firewall boundary rules and isolated session execution with a dedicated local runtime authority mirrors the architecture of your **ONE / AEN-IEN Cyber Control Center (CCC)** across local loopback services and `W03` Safeware cartridges, while preserving the distinct Mint-to Logic™ unit container (`[300]`) and single-use burn (`[500a]`) model.
