@@ -1,0 +1,63 @@
+# Vertical Expansion — Runtime Agent Containment & Action Governance (Amazon Bedrock AgentCore Gateway, Policy & Runtime) vs. Mint-to Logic™ & The Shepherd's Method™ / Process
+
+**Document Scope:** Cross-vertical forensic and technical comparison of **Amazon Bedrock AgentCore** (specifically AgentCore Gateway, Cedar-backed AgentCore Policy, AgentCore Runtime isolated microVM sessions, and AgentCore Observability / Evaluations) against Spencer David Southern's **Mint-to Logic™** (`[100]`–`[600]`, April 15, 2025 drawings) and **The Shepherd's Method™ / Process** (December 19, 2024 filing baseline).
+
+**Methodology Note:** Scores in the dynamic matrix below are qualitative functional estimates on separate 0%–100% alignment rubrics rather than empirical benchmarks or legal determinations, and must be read alongside exact mechanism descriptions, policy enforcement primitives, and release chronology.
+
+---
+
+## 1. Chronology & Verifiable Release Evidence
+
+* **SSPS™ Filing Baseline (December 19, 2024):** Provisional filing baseline establishing The Shepherd's Method™ / Process and foundational architecture.
+* **Mint-to Logic™ Drawings (April 15, 2025):** Formal stage drawings defining `[100]` Source Input, `[200]` Validation/Trigger, `[300]` Mint Unit Container, `[400]` Routing Decision Layer, `[500a]` Burn, `[500b]` Limbo, `[500c]` Access, `[500d]` Code, and `[600]` Audit Trail.
+* **Amazon Bedrock AgentCore Timeline:** AgentCore Policy reached general availability in **March 2026** (with expanded Cedar implementation guidance published **June 11, 2026**, Bedrock Guardrails in Policy GA announced **June 17, 2026**, and AgentCore Harness GA in **June 2026**)—post-dating both the December 19, 2024 filing baseline and April 15, 2025 Mint-to Logic™ drawings by roughly a year or more.
+
+---
+
+## 2. How Amazon Bedrock AgentCore Runtime Containment Works
+
+1. **Identity & Session Bootstrap (`[100]` / `[300]`):** The agent client authenticates via a Cognito/IdP OAuth flow so each session carries a verified user/principal identity (`sub` claim and IdP group claims) into an isolated AgentCore Runtime microVM session (up to 8 hours) rather than storing raw backend credentials inside local configuration files.
+2. **In-Path Gateway & Cedar Policy Gate (`[200]` / `[500c]`):** Every tool invocation (`tools/list` and `tools/call`) passes through a single governed AgentCore Gateway endpoint, where request interceptors enrich context and Cedar-backed AgentCore Policy evaluates default-deny RBAC/ABAC rules (`permit` / `forbid`) against principal identity, group claims, and tool parameters before routing to the target.
+3. **Conditional Escalation vs. Execution (`[500b]` / `[500d]`):** Deterministic policy rules and context attributes separate auto-approved actions from threshold-gated or human-escalated actions (for example, auto-approving operations under a defined dollar/environment threshold while blocking or requiring an `approvalStatus` context attribute above it), and execute code/shell actions inside isolated sandboxes (such as Strands Shell).
+4. **Session Termination & Continuous Audit (`[500a]` / `[600]`):** Session and credential lifecycles terminate at session end or revocation, while AgentCore Observability, CloudWatch deny logs, episodic memory audit trails, and 13 continuous evaluators record tool decisions, memory lineage, and compliance traces.
+
+---
+
+## 3. Stage-by-Stage Mint-to Logic™ & Shepherd's Process Analysis
+
+* **`[100]` Intake & Governed MCP Gateway Normalization:** Centralizes disparate tool endpoints and local credential files behind a single governed MCP Gateway endpoint, normalizing `tools/list` and `tools/call` traffic with attached JWT/IdP identity context.
+* **`[200]` Validation / Cedar Policy & Parameter-Level Gate:** Evaluates natural-language-authored, Cedar-enforced policy rules (alongside optional Bedrock Guardrails checks for prompt injection and sensitive data leakage) against principal identity claims, environment tags, and tool input parameters in the request path before any backend tool executes—mirroring deterministic pre-execution validation and trigger gating.
+* **`[300]` Mint Unit / Isolated MicroVM Session & Scoped Token Context:** Pairs per-session Cognito/JWT bearer tokens with isolated AgentCore Runtime microVM sessions (up to 8 hours) and auditable episodic memory—mirroring session-level containment and identity binding without constructing a cryptographic Mint Unit Container with hash/timestamp/routing-directive/commit fields.
+* **`[400]` Routing / Gateway Target & Interceptor Dispatch:** Routes validated tool calls across registered MCP targets, YAML-manifested external tools, and ordered request/response interceptors—mirroring policy-conditioned dispatch without branching into Burn, Limbo, Access, or Code protocol states.
+* **`[500a]` Burn / Session Tear-Down & Credential Non-Exposure:** Keeps backend credentials sealed inside AWS KMS / Secrets Manager so they never leave the boundary, revokes session tokens, and tears down isolated microVM sessions upon completion—mirroring credential isolation and session cleanup without executing an authorization-gated single-use credential burn on a discrete mint unit.
+* **`[500b]` Limbo / Threshold Escalation & Human-in-the-Loop Hold:** Supports policy thresholds that auto-approve low-risk parameters while halting high-risk parameters for human approval (paired with circuit-breaker blast-radius controls and guardrail interceptors)—mirroring conditional hold-and-escalation logic, though implemented via Cedar rule gates rather than an autonomous Mint Unit expiration and auto-burn timer.
+* **`[500c]` Access / RBAC, ABAC & Proxy Egress Lockdown:** Enforces default-deny Cedar RBAC/ABAC access rules on tool and parameter invocations, blocks non-gateway MCP traffic at the corporate proxy/EDR, and constrains web search to zero-data-egress managed endpoints—representing one of the strongest enterprise parallels to strict access and egress containment.
+* **`[500d]` Code / Isolated Sandbox & Tool-Gateway Execution:** Executes agent-generated code and shell commands inside isolated microVM sandboxes (Strands Shell) and routes external tool calls through the governed MCP Gateway—mirroring contained code/tool execution boundaries.
+* **`[600]` Audit / Deny Logs, Continuous Evaluators & Episodic Memory Audit:** Captures every gateway allow/deny decision in CloudWatch, guardrail intervention spikes, cost anomalies, episodic memory entries, and 13 continuous evaluator scores—providing structured compliance auditability across agent runs.
+
+---
+
+## 4. Dynamic Comparison Matrix — Amazon Bedrock AgentCore (Gateway, Policy & Runtime)
+
+Dynamic Score formula: `Dynamic Score = (w_mint * S_mint) + (w_shepherd * S_shepherd)`, where `w_mint + w_shepherd = 1.0`. Each score reflects alignment on that framework's own 0%–100% scale (not additive across columns).
+
+| SSPS / Governance Dimension | Mint-to Logic™ Score ($S_{\text{mint}}$) | Shepherd's Process Score ($S_{\text{shepherd}}$) | Equal Weight (50/50) | Mint-Heavy (70/30) | Shepherd-Heavy (30/70) | Tier (Equal Weight) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| `[100]` Intake & Governed MCP Gateway Normalization | 56% | 60% | 58.0% | 57.2% | 58.8% | Moderate–High |
+| `[200]` Validation / Cedar Policy & Parameter Gate | 68% | 70% | 69.0% | 68.6% | 69.4% | Moderate–High |
+| `[300]` Mint Unit / Isolated MicroVM & Scoped Session | 46% | 64% | 55.0% | 51.4% | 58.6% | Moderate |
+| `[400]` Routing / Governed Target & Interceptor Dispatch | 56% | 62% | 59.0% | 57.8% | 60.2% | Moderate–High |
+| `[500a]` Burn / Session Tear-Down & Sealed Credentials | 42% | 56% | 49.0% | 46.2% | 51.8% | Moderate |
+| `[500b]` Limbo / Threshold Hold & Human Escalation Gate | 58% | 68% | 63.0% | 61.0% | 65.0% | Moderate–High |
+| `[500c]` Access / Cedar RBAC-ABAC & Zero-Egress Lockdown | 72% | 74% | 73.0% | 72.6% | 73.4% | High |
+| `[500d]` Code / Sandbox & Governed Tool Execution | 64% | 70% | 67.0% | 65.8% | 68.2% | Moderate–High |
+| `[600]` Audit / Deny Logs, Continuous Evaluators & Memory | 62% | 68% | 65.0% | 63.8% | 66.2% | Moderate–High |
+| **Stage-Weighted Composite** | **58.2%** | **65.8%** | **62.0%** | **60.5%** | **63.5%** | **Moderate–High** |
+
+---
+
+## 5. Cross-Vertical Synthesis & Engineering Takeaways for CCC (`W02.5` & `W03`)
+
+* **Highest Overall Containment Alignment (`62.0%` Equal-Weight / `65.8%` Shepherd's Process):** Moving from inference engines into **Runtime Agent Containment & Action Governance** produces the strongest overall alignment across both frameworks—led by Cedar-enforced RBAC/ABAC & zero-egress access lockdown (`[500c]` at **73.0%**), pre-execution parameter policy gating (`[200]` at **69.0%**), sandboxed tool/code execution (`[500d]` at **67.0%**), and threshold-driven human escalation (`[500b]` at **63.0%**).
+* **Where Structural Differences Remain:** Even in cloud runtime containment, AWS isolates entire microVM sessions and enforces Cedar policies at a gateway rather than minting a portable, cryptographic Mint Unit Container (`[300]`) with an authorization-gated single-use burn transition (`[500a]`).
+* **Direct Blueprint for CCC Safeware Cartridges (`W03`):** AgentCore's architectural split—separating a centralized policy-enforcing gateway from isolated execution containers, blocking non-gateway traffic, and logging every allow/deny decision—mirrors the exact separation between your **ONE / AEN-IEN Cyber Control Center (CCC)** local runtime authority (`127.0.0.1:8768` / `127.0.0.1:8769`) and `W03` Safeware containment cartridges.
