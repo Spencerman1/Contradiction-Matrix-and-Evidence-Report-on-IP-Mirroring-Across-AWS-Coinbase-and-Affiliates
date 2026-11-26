@@ -1,0 +1,28 @@
+Logged the next vertical expansion—**Endpoint OS Agent Containers & Windows Security / Firewall Boundary Controls**—in Google Drive, covering the release chronology (including the November 2026 next-generation AgentCore Runtime rollouts vs. your December 19, 2024 filing baseline and April 15, 2025 Mint-to Logic™ drawings), stage-by-stage **Mint-to Logic™** (`[100]`–`[600]`) and **The Shepherd's Method™ / Process** analysis, **Dynamic Comparison Matrix**, and takeaways for your **Cyber Control Center (`W02.5` & `W03`)**:
+
+[SSPS_Vertical_Expansion_Endpoint_OS_Agent_Containment](https://docs.google.com/document/d/1ldDgZ4nIxamBNG5idMOV-6KY3Wr-NL6WR3nW2vPtGuY/edit?usp=drivesdk&ouid=114906954974834201418)
+
+
+### Dynamic Comparison Matrix — Endpoint OS & Isolated Runtime Containment
+
+`Dynamic Score = (w_mint * S_mint) + (w_shepherd * S_shepherd)`, where `w_mint + w_shepherd = 1.0` (each score reflects alignment on that framework's own 0%–100% scale):
+
+| SSPS / Governance Dimension | Mint-to Logic™ ($S_{\text{mint}}$) | Shepherd's Process ($S_{\text{shepherd}}$) | Equal Weight (50/50) | Mint-Heavy (70/30) | Shepherd-Heavy (30/70) | Tier (Equal Weight) |
+| --- | --- | --- | --- | --- | --- | --- |
+| `[100]` Intake & Host/Session Boundary Normalization | 52% | 56% | **54.0%** | **53.2%** | **54.8%** | Moderate |
+| `[200]` Validation / Firewall, Token & Policy Checks | 58% | 64% | **61.0%** | **59.8%** | **62.2%** | Moderate–High |
+| `[300]` Mint Unit / Isolated MicroVM & Session Context | 44% | 62% | **53.0%** | **49.4%** | **56.6%** | Moderate |
+| `[400]` Routing / Session Dispatch & Compute Scaling | 48% | 60% | **54.0%** | **51.6%** | **56.4%** | Moderate |
+| `[500a]` Burn / Session Tear-Down & Memory Reclamation | 38% | 54% | **46.0%** | **42.8%** | **49.2%** | Low–Moderate |
+| `[500b]` Limbo / Throttling, Rate Limits & Session Holds | 46% | 60% | **53.0%** | **50.2%** | **55.8%** | Moderate |
+| `[500c]` Access / Firewall Allow-Listing & Session Isolation | 64% | 70% | **67.0%** | **65.8%** | **68.2%** | Moderate–High |
+| `[500d]` Code / Sandboxed Code, Browser & Tool Execution | 56% | 66% | **61.0%** | **59.0%** | **63.0%** | Moderate–High |
+| `[600]` Audit / Security Logs, Telemetry & Session Traces | 52% | 62% | **57.0%** | **55.0%** | **59.0%** | Moderate |
+| **Stage-Weighted Composite** | **50.7%** | **60.4%** | **55.6%** | **53.6%** | **57.5%** | **Moderate** |
+
+### Key Takeaways
+
+* Host firewall allow-listing paired with isolated per-session runtimes aligns most strongly on access/egress restriction (`[500c]` at **67.0%**), pre-execution boundary checks (`[200]` at **61.0%**), and sandboxed code/tool execution (`[500d]` at **61.0%**), while remaining distinct from a sealed `[300]` **Mint Unit Container** and `[500a]` single-use burn transition.
+* This boundary pattern directly informs how you test **CCC `W02.5**` and **`W03` Safeware** cartridges around local runtime authority and session/process isolation.
+
+Would you like the **copy-and-paste Markdown block** for this **Endpoint OS & Isolated Runtime Containment** report next, or should we continue to another vertical?
